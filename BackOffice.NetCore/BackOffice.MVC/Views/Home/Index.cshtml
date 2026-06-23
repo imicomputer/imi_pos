@@ -1,0 +1,67 @@
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to IMI POS Back Office</h1>
+    <p class="lead">Manage your products, customers, discounts, and view sales reports.</p>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">Products</h5>
+                <p class="card-text">Manage product catalog</p>
+                <a asp-controller="Produk" asp-action="Index" class="btn btn-primary">View Products</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">Customers</h5>
+                <p class="card-text">Manage customer data</p>
+                <a asp-controller="Pelanggan" asp-action="Index" class="btn btn-primary">View Customers</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">Discounts</h5>
+                <p class="card-text">Manage discount offers</p>
+                <a asp-controller="Diskon" asp-action="Index" class="btn btn-primary">View Discounts</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">Reports</h5>
+                <p class="card-text">View sales reports</p>
+                <a asp-controller="Laporan" asp-action="Index" class="btn btn-primary">View Reports</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (ViewBag.Role?.ToLower() == "admin")
+{
+    <div class="row mt-4">
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Users</h5>
+                    <p class="card-text">Manage system users</p>
+                    <a asp-controller="Pengguna" asp-action="Index" class="btn btn-warning">Manage Users</a>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<!-- Made with Bob -->
