@@ -18,7 +18,7 @@ builder.Services.AddHttpContextAccessor();
 // Register HttpClient for API calls
 builder.Services.AddHttpClient<IApiClient, ApiClient>(client =>
 {
-    client.BaseAddress = new Uri(builder.Configuration["ApiSettings:BaseUrl"] ?? "https://localhost:7000");
+    client.BaseAddress = new Uri(builder.Configuration["ApiSettings:BaseUrl"] ?? "https://localhost:7000/");
     client.Timeout = TimeSpan.FromSeconds(30);
 });
 
@@ -38,7 +38,7 @@ app.UseRouting();
 
 app.UseSession();
 
-app.UseAuthorization();
+// app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",

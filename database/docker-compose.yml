@@ -9,13 +9,14 @@ services:
       - "3307:3306"
     environment:
       MYSQL_ROOT_PASSWORD: Sparkling123
-      MYSQL_DATABASE: BACKOFFICE_API
-      MYSQL_USER: backoffice
-      MYSQL_PASSWORD: backoffice123
+      MYSQL_DATABASE: pos
+      MYSQL_USER: imipos
+      MYSQL_PASSWORD: ImiPos123
     command:
       - --default-authentication-plugin=mysql_native_password
     volumes:
       - db_data:/var/lib/mysql
+      - /home/imi/imi_pos/database:/home/db_backup
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 10s
@@ -24,4 +25,4 @@ services:
 
 volumes:
   db_data:
-    name: backoffice_mysql_data
+    name: imipos_mysql_data

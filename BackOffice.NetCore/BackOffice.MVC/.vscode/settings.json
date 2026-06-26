@@ -1,6 +1,11 @@
 {
-  "terminal.integrated.defaultProfile.windows": "Ubuntu-22.04 (WSL)",
+  "terminal.integrated.defaultProfile.windows": "Debian (WSL)",
   "terminal.integrated.profiles.windows": {
+    "Debian (WSL)": {
+      "path": "wsl.exe",
+      "args": ["-d", "Debian"],
+      "icon": "terminal-linux"
+    },
     "Ubuntu-22.04 (WSL)": {
       "path": "wsl.exe",
       "args": ["-d", "Ubuntu-22.04"],
