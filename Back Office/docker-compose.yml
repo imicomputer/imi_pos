@@ -1,0 +1,27 @@
+version: '3.9'
+
+services:
+  backoffice-db:
+    image: mysql:8.0
+    container_name: backoffice-mysql
+    restart: unless-stopped
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: Sparkling123
+      MYSQL_DATABASE: BACKOFFICE_API
+      MYSQL_USER: backoffice
+      MYSQL_PASSWORD: backoffice123
+    command:
+      - --default-authentication-plugin=mysql_native_password
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  db_data:
+    name: backoffice_mysql_data

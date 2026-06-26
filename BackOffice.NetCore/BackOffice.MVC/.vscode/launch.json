@@ -1,0 +1,42 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug: BackOffice.API",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build: BackOffice.API",
+      "program": "${workspaceFolder}/BackOffice.NetCore/BackOffice.API/bin/Debug/net8.0/BackOffice.API.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/BackOffice.NetCore/BackOffice.API",
+      "stopAtEntry": false,
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_URLS": "http://localhost:60833"
+      },
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Debug: BackOffice.MVC",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build: BackOffice.MVC",
+      "program": "${workspaceFolder}/BackOffice.NetCore/BackOffice.MVC/bin/Debug/net8.0/BackOffice.MVC.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/BackOffice.NetCore/BackOffice.MVC",
+      "stopAtEntry": false,
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_URLS": "http://localhost:5001"
+      },
+      "console": "integratedTerminal"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Debug: API + MVC (both)",
+      "configurations": ["Debug: BackOffice.API", "Debug: BackOffice.MVC"],
+      "stopAll": true
+    }
+  ]
+}
